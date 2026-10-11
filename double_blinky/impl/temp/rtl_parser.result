@@ -1,0 +1,10 @@
+[
+ {
+  "InstFile" : "C:/DEV/projects/tang/double_blinky/src/double_blinky.vhd",
+  "InstLine" : 10,
+  "InstName" : "TOP",
+  "ModuleFile" : "C:/DEV/projects/tang/double_blinky/src/double_blinky.vhd",
+  "ModuleLine" : 10,
+  "ModuleName" : "TOP"
+ }
+]

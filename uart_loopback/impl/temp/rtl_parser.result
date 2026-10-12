@@ -1,0 +1,10 @@
+[
+ {
+  "InstFile" : "C:/DEV/projects/tang/uart_loopback/src/top.vhd",
+  "InstLine" : 8,
+  "InstName" : "TOP",
+  "ModuleFile" : "C:/DEV/projects/tang/uart_loopback/src/top.vhd",
+  "ModuleLine" : 8,
+  "ModuleName" : "TOP"
+ }
+]

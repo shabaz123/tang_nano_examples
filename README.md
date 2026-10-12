@@ -16,5 +16,36 @@ If it works, you'll see:
 
 ```PASS: 531 bytes echoed exactly at 115200 baud```
 
+## psram_uart
+This project implements the ability to upload and download content to/from PSRAM, using the UART. Tested on Tang Nano 9k.
+
+The project configures the FPGA PSRAM to be in two channels, both 32Mbit in size.
+
+To run the demo, type the following, which attempts to write to channel 1 (the choice is channel 0 or channel 1) 100 bursts of data (each burst is 32 bytes, so that is 3200 bytes total) from an example file called output.bin:
+
+```python .\python_test\upload_verify.py COM18 .\python_test\output.bin --channel 1 --limit-bursts 100```
+
+The above will write a 'burst' of 32 bytes, then immediately read it back, and repeat with another chunk of data, for a total of 100 times. If successful you'll see:
+
+```
+Verified 1/100 bursts
+Verified 100/100 bursts
+PASS: 3200 PSRAM bytes written/read back exactly; original BIN length 192000 bytes, channel 1
+```
+
+To transfer the entire demo file (19200 bytes):
+
+```python .\python_test\upload_verify.py COM18 .\python_test\output.bin --channel 0 ```
+
+If successful the result will be:
+
+```
+Verified 5889/6000 bursts
+Verified 6000/6000 bursts
+PASS: 192000 PSRAM bytes written/read back exactly; original BIN length 192000 bytes, channel 0
+```
+The way the transfers work, is that a header is sent first, then 32 bytes. See the Python file function called *transaction* for deciphering this.
+
+
 
 
